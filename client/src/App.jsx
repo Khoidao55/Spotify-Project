@@ -3,14 +3,9 @@ import axios from 'axios';
 import './App.css';
 
 const App = () => {
-  useEffect(() => {
-    axios.get('/categories')
-    .then(data => console.log('data:', data))
-    .catch(err => console.log(err))
-  });
   return (
-    <div className='background'>
-      <p></p>
+    <div>
+      <iframe title="This Week’s Playlist" src="https://open.spotify.com/embed/playlist/3LFIBdP7eZXJKqf3guepZ1?si=91df77917f764fb1" width="100%" height="80" class="spotifyPlayer" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
   )
 }
