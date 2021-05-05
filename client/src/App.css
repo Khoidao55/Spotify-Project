@@ -1,1 +1,14 @@
-body { background-image:url('https://i.pinimg.com/originals/4a/65/ab/4a65abeead3a8d113bccfee5d5d239f4.gif'); background-repeat:repeat; }
+body {
+  background: #e1daca;
+}
+
+.background {
+  display: block;
+  background-image:url('https://steamuserimages-a.akamaihd.net/ugc/843717216550589517/825981045A4F25599814E1D213C9340E0D387655/');
+  background-repeat: no-repeat;
+  background-size: 1000px 700px;
+  height: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

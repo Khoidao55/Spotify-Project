@@ -9,8 +9,8 @@ const App = () => {
     .catch(err => console.log(err))
   });
   return (
-    <div>
-      <h1>Khoi's World</h1>
+    <div className='background'>
+      <p></p>
     </div>
   )
 }
