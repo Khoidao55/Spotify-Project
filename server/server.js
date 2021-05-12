@@ -14,24 +14,51 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.post('/login', (req, res) => {
-  const code = req.body.code;
-  const spotifyAPI = new SpotifyWebAPI({
-    redirectURI: 'http://localhost:3000',
-    clientID: Credentials.clientID,
-    clientSecret: Credentials.clientSecret
+app.post("/refresh", (req, res) => {
+  const refreshToken = req.body.refreshToken
+  const spotifyApi = new SpotifyWebAPI({
+    redirectUri: 'http://localhost:3000',
+    clientId: Credentials.ClientID,
+    clientSecret: Credentials.ClientSecret,
+    refreshToken
   })
 
-  spotifyAPI.authorizationCodeGrant(code).then(data => {
-    res.status(200).json({
-      accessToken: data.body.access_token,
-      refreshToken: data.body.refesh_token,
-      exiresIn: data.body.expires_in
+  spotifyApi
+    .refreshAccessToken()
+    .then(data => {
+      console.log(data.body);
+      res.json({
+        accessToken: data.body.accessToken,
+        expiresIn: data.body.expiresIn,
+      })
     })
-    .catch(() => {
-      res.sendStatus(400);
+    .catch(err => {
+      console.log(err)
+      res.sendStatus(400)
     })
+})
+
+app.post('/login', (req, res) => {
+  const code = req.body.code
+  const spotifyApi = new SpotifyWebAPI({
+    redirectUri: 'http://localhost:3000',
+    clientId: Credentials.ClientID,
+    clientSecret: Credentials.ClientSecret
   })
+
+  spotifyApi
+    .authorizationCodeGrant(code)
+    .then(data => {
+      res.json({
+        accessToken: data.body.access_token,
+        refreshToken: data.body.refresh_token,
+        expiresIn: data.body.expires_in,
+      })
+    })
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(400)
+    })
 })
 
 app.listen(PORT, () => {
