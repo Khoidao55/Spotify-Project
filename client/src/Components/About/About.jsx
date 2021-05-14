@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import CustomButton from "../CustomButton/CustomButton.jsx";
 import PhoneSpotify from "./About-img/iphone-spotify.png";
 import David from "./About-img/David-image.png";
@@ -13,6 +14,11 @@ const About = () => {
   return (
     <Fragment>
       <div className="about-container">
+      <Link to='/'>
+        <CustomButton>
+          Back
+        </CustomButton>
+      </Link>
         <div className="about-comment row">
           <h2 className="about-text">We provide high quality music and service to our customers.</h2>
         </div>

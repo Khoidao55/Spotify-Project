@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Switch, Route } from "react-router-dom";
 import About from './Components/About/About.jsx';
 import Login from './Components/Login/Login.jsx';
 import CategoriesSelection from './Components/CategoriesSelection/CategoriesSelection.jsx'
@@ -15,8 +16,10 @@ const App = () => {
   )
   :(
     <div>
-      <Login />
-      <About />
+      <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/register" component={About} />
+        </Switch>
     </div>
   )
 }

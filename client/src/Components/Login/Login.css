@@ -1,0 +1,32 @@
+.background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(./background.png);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.gryffin-text-box {
+  position: fixed;
+  width: 1140px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-57%, -53%);
+}
+
+.login-text {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 20px;
+  word-spacing: 4px;
+  font-size: 240%;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

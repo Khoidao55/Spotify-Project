@@ -61,6 +61,14 @@ app.post('/login', (req, res) => {
     })
 })
 
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+});
+
 app.listen(PORT, () => {
   console.log('Listening on 3000');
 });
