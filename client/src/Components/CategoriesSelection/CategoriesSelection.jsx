@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useAuth from '../../useAuth.jsx';
 import SpotifyWebAPI from 'spotify-web-api-node';
 import Credentials from '../../../../Credentials.js';
+import CustomButton from '../CustomButton/CustomButton.jsx';
 import './CategoriesSelection.css';
 
 const spotifyAPI = new SpotifyWebAPI({
@@ -53,14 +54,18 @@ const CategoriesSelection = ({ code }) => {
     {console.log(selectedGenre)}
     return (
       <div className="genre-container">
-        {/* {categories.map(category => {
+        <ul>
+        {categories.map(category => {
           return(
-            <div>
-              <button>{category.name}</button>
-            </div>
+            <li>
+              <CustomButton className="signin-button custom-button-ghost">
+                {category.name}
+              </CustomButton>
+            </li>
           )
-        })} */}
-        <iframe title="This Week’s Playlist" src={embedURL + selectedGenre.playlists.items[0].external_urls.spotify.slice(embedURL.length - 6)} width="100%" height="320" class="spotifyPlayer" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        })}
+        </ul>
+        {/* <iframe title="This Week’s Playlist" src={embedURL + selectedGenre.playlists.items[0].external_urls.spotify.slice(embedURL.length - 6)} width="100%" height="320" class="spotifyPlayer" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> */}
       </div>
     )
   }

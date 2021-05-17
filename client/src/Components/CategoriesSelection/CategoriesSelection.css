@@ -1,4 +1,13 @@
-.genre-container {
+.genre-container ul {
   display: flex;
   flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: flex-start;
+  list-style: none;
 }
+
+/* .genre-container li {
+    list-style: none;
+    flex: 0 0 33.333333%;
+    margin: 0;
+} */
