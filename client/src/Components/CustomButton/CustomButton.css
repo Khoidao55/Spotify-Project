@@ -1,7 +1,7 @@
 .custom-button {
   display: inline-block;
   padding: 10px 30px;
-  font-weight: 300;
+  font-weight: 400;
   text-decoration: none;
   border-radius: 200px;
   transition: background-color 0.2s, border 0.2s, color 0.2s;
@@ -17,27 +17,27 @@
 }
 
 .custom-button-full {
-  background-color: #1db954;
-  border: 1px solid #1db954;
+  background-color: black;
+  border: 1px solid black;
   color: #fff;
   margin-right: 15px;
 }
 
 .custom-button:hover {
-  background-color: #168d40;
+  background-color: #d7bea0;
 }
 
 .signin-button:hover {
-  background-color: #168d40;
+  background-color: #d7bea0;
 }
 
 .custom-button-full:hover {
-  border: 1px solid #168d40;
+  border: 1px solid #DCDCDC;
 }
 
 .custom-button-ghost {
-  border: 1px solid #1db954;
-  color: #1db954;
+  border: 1px solid black;
+  color: black;
   margin-right: 15px;
 }
 
