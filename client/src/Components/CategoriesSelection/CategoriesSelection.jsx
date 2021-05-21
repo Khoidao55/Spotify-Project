@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Switch, Route, Link } from "react-router-dom";
 import useAuth from '../../useAuth.jsx';
 import SpotifyWebAPI from 'spotify-web-api-node';
 import Credentials from '../../../../Credentials.js';
@@ -52,19 +53,28 @@ const CategoriesSelection = ({ code }) => {
   if (categories.length === 0) {
     return (
       <div>
+        {console.log(selectedGenre)}
         <h1>Loading...</h1>
       </div>
     )
-  } else {
+  } if(selectedGenre !== undefined) {
+    return (
+      <div>
+        {console.log('dawefa', selectedGenre)}
+        <PlaylistGenre genre={selectedGenre} />
+      </div>
+    )
+  }
+  else {
     return (
       <div className="genre-container">
         <ul>
         {categories.map(category => {
           return(
             <li>
-              <CustomButton onClick={() => genreClick(category.name)} className="signin-button custom-button-ghost">
-                {category.name}
-              </CustomButton>
+                <CustomButton onClick={() => genreClick(category.name)} className="signin-button custom-button-ghost">
+                  {category.name}
+                </CustomButton>
             </li>
           )
         })}
@@ -75,3 +85,9 @@ const CategoriesSelection = ({ code }) => {
 }
 
 export default CategoriesSelection;
+
+/*
+<Switch>
+    <Route exact path="/register" component={About} />
+</Switch>
+*/

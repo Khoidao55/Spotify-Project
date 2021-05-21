@@ -1,8 +1,7 @@
 import React from 'react';
 
-const PlaylistGenre = (genre) => {
+const PlaylistGenre = ({ genre }) => {
   const embedURL = 'https://open.spotify.com/embed';
-
   return (
     <div>
       <iframe
